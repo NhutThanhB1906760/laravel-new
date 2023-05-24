@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Auth;
 
 class Admin 
 {
@@ -14,11 +15,10 @@ class Admin
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
     public function handle(Request $request, Closure $next): Response
-    {
-        $a= $request->input('name');
-        if($a == '1'){
+    {   
+        if(Auth::check()){
             return $next($request);
           }
-            return redirect('/admin')->with('error','You have not admin access');
+            return redirect('/form')->with('error','You have not admin access');
     }
 }

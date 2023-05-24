@@ -831,9 +831,16 @@
 </head>
 
 <body class="antialiased">
+    @if(Auth::check())
     <div class="panel-body">
-        <a href="{{url('/form')}}">form</a>
+
+        <a href="/logout">logout</a>
+        <a href="/formProduct">addPro</a>
+        <a href="/product">Product</a>
     </div>
+    @else
+    <a href="{{url('/form')}}">login</a>
+    @endif
     <div
         class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
         @if (Route::has('login'))
@@ -853,7 +860,10 @@
             @endauth
         </div>
         @endif
-        @for ($i = 0; $i < 10; $i++) The current value is {{ $i }} @endfor <div class="max-w-7xl mx-auto p-6 lg:p-8">
+        <div class="container">
+            @yield('content')
+        </div>
+        <div class="max-w-7xl mx-auto p-6 lg:p-8">
             <div class="flex justify-center">
                 <svg viewBox="0 0 62 65" fill="none" xmlns="http://www.w3.org/2000/svg"
                     class="h-16 w-auto bg-gray-100 dark:bg-gray-900">
@@ -1016,7 +1026,7 @@
                     Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
                 </div>
             </div>
-    </div>
+        </div>
     </div>
 </body>
 

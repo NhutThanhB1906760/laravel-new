@@ -24,5 +24,14 @@ Route::get('/admin', function () {
 Route::get('/form', function () {
     return view('form');
 });
-
-Route::post('admin/routes', [HomeController::class ,'index'])->middleware('admin');
+Route::get('/testBlade', function () {
+    return view('test');
+});
+Route::get('/editForm/{id}', [HomeController::class ,'getProduct']);
+Route::put('/edit/{id}', [HomeController::class ,'updateProduct']);
+Route::get('/formProduct', [HomeController::class ,'next'])->middleware('admin');
+Route::post('/login', [HomeController::class ,'login']);
+Route::get('/logout', [HomeController::class ,'logout']);
+Route::post('/add', [HomeController::class ,'add']);
+Route::get('/product', [HomeController::class ,'getdata']);
+Route::delete('/delete/{id}', [HomeController::class ,'delete']);

@@ -9,9 +9,12 @@
 </head>
 
 <body>
-    <form action="/admin/routes" method="POST">
+    <form action="/login" method="POST">
         @csrf
-        <input type="text" name='name'>
+        <label for="email">Email:</label>
+        <input type="email" name="email">
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="">
         <button type=submit>submit</button>
     </form>
 </body>
