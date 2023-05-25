@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Route;
@@ -27,11 +28,14 @@ Route::get('/form', function () {
 Route::get('/testBlade', function () {
     return view('test');
 });
-Route::get('/editForm/{id}', [HomeController::class ,'getProduct']);
-Route::put('/edit/{id}', [HomeController::class ,'updateProduct']);
-Route::get('/formProduct', [HomeController::class ,'next'])->middleware('admin');
-Route::post('/login', [HomeController::class ,'login']);
-Route::get('/logout', [HomeController::class ,'logout']);
-Route::post('/add', [HomeController::class ,'add']);
-Route::get('/product', [HomeController::class ,'getdata']);
-Route::delete('/delete/{id}', [HomeController::class ,'delete']);
+Route::get('/editForm/{id}', [HomeController::class, 'getProduct']);
+Route::put('/edit/{id}', [HomeController::class, 'updateProduct']);
+Route::get('/formProduct', [HomeController::class, 'next'])->middleware('admin');
+Route::post('/login', [HomeController::class, 'login']);
+Route::get('/logout', [HomeController::class, 'logout']);
+Route::post('/add', [HomeController::class, 'add']);
+Route::get('/product', [HomeController::class, 'getdata']);
+Route::get('/sql', [HomeController::class, 'testSql']);
+Route::delete('/delete/{id}', [HomeController::class, 'delete']);
+Route::get('/zz', [HomeController::class, 'reSql']);
+Route::get('/mm', [HomeController::class, 'mmSql']);
